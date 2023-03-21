@@ -36,7 +36,7 @@ jobs:
     - name: Install dependencies
       run: |
         poetry env use "${{ matrix.python-version }}"
-        poetry install --without docs --with github_hooks
+        poetry install --with github_hooks
 
     - name: Run checks
       run: poetry run make test ci=1

@@ -141,7 +141,6 @@ name.
 
 - `make`: All required dependencies for [make test](#make-test).
 - `tests`: All required dependencies for tests.
-- `docs`: All required dependencies for building documentation.
 - `github_hooks`: All required dependencies for GitHub hooks.
 
 Please see [Managing dependencies in poetry](https://python-poetry.org/docs/master/managing-dependencies/).
@@ -155,11 +154,6 @@ dependabot will create PR for it.
 
 Read more [about Semantic Versions](https://semver.org/) and [Dependency specification in poetry](https://python-poetry.org/docs/master/dependency-specification/).
 
-
-## Documentation
-
-We use Sphinx for documentation and [docstrings](#docstrings) for API documentation. At now, there is no actual styles
-here, except `doc8`.
 
 ## Other Help
 
