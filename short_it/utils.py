@@ -1,6 +1,6 @@
 """Module for some useful utils."""
 import sys
-import typing
+import typing as t
 
 from loguru import logger
 
@@ -38,7 +38,7 @@ def setup_logging() -> None:
 class Singleton(type):
     """Metaclass to do Singleton pattern."""
 
-    _instances: dict[type, typing.Any] = {}  # type: ignore[misc] # Explicit "Any" is not allowed
+    _instances: dict[type, t.Any] = {}  # type: ignore[misc] # Explicit "Any" is not allowed
 
     def __call__(cls, *args, **kwargs):
         """Actual logic in this class.
