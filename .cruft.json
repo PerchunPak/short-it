@@ -6,7 +6,7 @@
     "cookiecutter": {
       "project_name": "short-it",
       "organization": "PerchunPak",
-      "project_description": "My personal link shortner adapted to my needs and special link structure!",
+      "project_description": "My personal link shorter adapted to my needs and special link structure!",
       "other_languages_support": "n",
       "ukrainian_language_support": "n",
       "russian_language_support": "n",

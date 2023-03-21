@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "short-it"
-description = "My personal link shortner adapted to my needs and special link structure!"
+description = "My personal link shorter adapted to my needs and special link structure!"
 version = "0.1.0"
 license = "MIT"
 authors = []
