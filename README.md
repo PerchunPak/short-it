@@ -4,9 +4,7 @@
 
 [![Build Status](https://github.com/PerchunPak/short-it/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/PerchunPak/short-it/actions?query=workflow%3Atest)
 [![codecov](https://codecov.io/gh/PerchunPak/short-it/branch/master/graph/badge.svg)](https://codecov.io/gh/PerchunPak/short-it)
-[![Documentation Build Status](https://readthedocs.org/projects/short-it/badge/?version=latest)](https://short-it.readthedocs.io/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Python support versions badge (from pypi)](https://img.shields.io/pypi/pyversions/short-it)](https://www.python.org/downloads/)
 
 My personal link shortner adapted to my needs and special link structure!
 
