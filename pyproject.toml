@@ -20,6 +20,7 @@ python = "~3.11"
 omegaconf = "~2.3"
 fastapi = "~0.95"
 loguru = "~0.6"
+uvicorn = "~0.21"
 
 
 [tool.poetry.group.make.dependencies]
@@ -58,4 +59,4 @@ GitPython = "~3.1"
 
 [tool.black]
 line-length = 120
-target-version = ['py38']
+target-version = ['py311']
