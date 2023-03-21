@@ -43,6 +43,19 @@ class LinkSettings:
     aliases: list[str] | None = None
     additional_aliases: list[str] | None = None
 
+    def add_builtin_aliases(self, link_type: str) -> None:
+        """Add pre-defined aliases, if user set some often used link type."""
+        if self.aliases is not None:
+            return
+
+        match link_type:
+            case "github" | "gh":
+                self.aliases = ["github", "gh", "git", "src", "sources", "source", "vcs"]
+            case "read-the-docs" | "readthedocs" | "rtd":
+                self.aliases = ["rtd", "readthedocs", "read-the-docs", "docs", "wiki"]
+            case "docs" | "wiki":
+                self.aliases = ["docs", "wiki", "documentation"]
+
 
 @dataclasses.dataclass
 class Config(metaclass=utils.Singleton):
