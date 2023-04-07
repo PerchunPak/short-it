@@ -63,6 +63,7 @@ class Config(metaclass=utils.Singleton):
 
     domain: str = "..."
     projects: dict[str, dict[str, LinkSettings]] = dataclasses.field(default_factory=dict)
+    simple: dict[str, str] = dataclasses.field(default_factory=dict)
     logging: LoggingConfigSection = dataclasses.field(default_factory=LoggingConfigSection)
 
     @classmethod
