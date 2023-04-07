@@ -32,14 +32,14 @@ flake8-docstrings = "~1"
 flake8-ensure-ascii = "~1.0"
 pydocstyle = ">=4.0.0"
 safety = "~2.3"
-cruft = "~2.12"
+cruft = "~2.14"
 lice = "~0.6"  # for generating template
 
 pre-commit = "~3.2"
 
 
 [tool.poetry.group.typing.dependencies]
-mypy = "~1.1"
+mypy = "~1.2"
 
 
 [tool.poetry.group.tests.dependencies]
@@ -48,7 +48,7 @@ pytest-cov = "~4.0"
 pytest-mock = "~3.10"
 pytest-testmon = "~2.0"
 pytest-randomly = "~3.12"
-Faker = "~18.3"
+Faker = "~18.4"
 
 
 [tool.poetry.group.github_hooks]
