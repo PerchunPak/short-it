@@ -12,29 +12,6 @@ from short_it import utils
 BASE_DIR = pathlib.Path(__file__).parent.parent
 
 
-class LogLevel(IntEnum):
-    """Log level for the app."""
-
-    TRACE = 5
-    """Use only for tracing error without a debugger."""
-    DEBUG = 10
-    INFO = 20
-    SUCCESS = 25
-    WARNING = 30
-    ERROR = 40
-    CRITICAL = 50
-
-
-@dataclasses.dataclass
-class LoggingConfigSection:
-    """Part of config for logging."""
-
-    level: LogLevel = LogLevel.INFO
-    """Log level for the app."""
-    json: bool = False
-    """Transform logs into JSON."""
-
-
 @dataclasses.dataclass
 class LinkSettings:
     """Settings for a one project link."""
@@ -63,7 +40,6 @@ class Config(metaclass=utils.Singleton):
 
     projects: dict[str, dict[str, LinkSettings]] = dataclasses.field(default_factory=dict)
     simple: dict[str, str] = dataclasses.field(default_factory=dict)
-    logging: LoggingConfigSection = dataclasses.field(default_factory=LoggingConfigSection)
 
     @classmethod
     def _setup(cls) -> te.Self:
