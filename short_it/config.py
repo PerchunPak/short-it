@@ -2,7 +2,6 @@
 import dataclasses
 import pathlib
 import typing as t
-from enum import IntEnum
 
 import omegaconf
 import typing_extensions as te
