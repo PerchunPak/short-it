@@ -43,4 +43,4 @@ USER container
 
 ENV PROD 1
 
-CMD ["dumb-init", "uvicorn", "short_it.app:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80"]
+CMD ["dumb-init", "uvicorn", "short_it.app:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8080"]

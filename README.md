@@ -74,7 +74,7 @@ simple:  # This is a list of simple links
 
 I recommend using Docker for hosting the project, but if you don't want to, you can just follow
 `for local developing` instructions and in the end use
-`uvicorn short_it.app:app --proxy-headers --host 0.0.0.0 --port 80`.
+`uvicorn short_it.app:app --proxy-headers --host 0.0.0.0 --port 8080`.
 Below will be instructions for hosting in Docker.
 
 Firstly, you need to install Docker, follow instructions [here](https://docs.docker.com/get-docker/).
