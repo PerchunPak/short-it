@@ -123,7 +123,8 @@ poetry install
 
 ### Configuration
 
-All configuration happens in `data/config.yml`. The structure was described [here](#special-structure)
+All configuration happens in `data/config.yml`. The structure was described [here](#special-structure).
+And if you don't know what is Sentry - you shouldn't probably touch it yet.
 
 ### If something is not clear
 

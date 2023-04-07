@@ -1,4 +1,4 @@
-FROM python:3.11-slim as poetry
+FROM python:3.11-slim AS poetry
 
 ENV PATH "/root/.local/bin:${PATH}"
 ENV PYTHONUNBUFFERED 1
@@ -13,7 +13,7 @@ COPY poetry.lock pyproject.toml ./
 RUN poetry export --no-interaction -o requirements.txt --without-hashes --only main,docker
 
 
-FROM python:3.11-slim as base
+FROM python:3.11-slim AS base
 
 ENV PYTHONPATH "/app"
 
@@ -26,8 +26,18 @@ RUN pip --no-cache-dir install -U pip && \
 COPY short_it/ short_it/
 
 
+FROM python:3.11-slim AS git
+# Write version for the Sentry 'release' option
+# (`apt-get update` because without it `package not found`, even if this update already was in `base` step)
+RUN apt-get update && \
+    apt-get install git -y --no-install-recommends
+COPY .git .git
+RUN git rev-parse HEAD > /commit.txt
+
+
 FROM base AS final
 
+COPY --from=git /commit.txt commit.txt
 RUN chown -R 5000:5000 /app
 USER container
 

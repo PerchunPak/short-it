@@ -1,5 +1,9 @@
 """Module for some useful utils."""
+import os
+import pathlib
 import typing as t
+
+import sentry_sdk
 
 
 class Singleton(type):
@@ -20,3 +24,34 @@ class Singleton(type):
             cls._instances[cls] = instance
 
         return cls._instances[cls]
+
+
+def start_sentry() -> None:
+    """Start Sentry listening."""
+    # circular imports
+    from short_it.config import BASE_DIR, Config
+
+    config = Config()
+
+    if not config.sentry.enabled:
+        return
+
+    sentry_sdk.init(
+        dsn=config.sentry.dsn,
+        traces_sample_rate=config.sentry.traces_sample_rate,
+        release=_get_commit(BASE_DIR / "commit.txt"),
+        environment=os.environ.get("SENTRY_ENVIRONMENT", "development"),
+        _experiments={
+            "profiles_sample_rate": 1.0,
+        },
+    )
+
+
+def _get_commit(commit_txt_path: pathlib.Path) -> t.Optional[str]:
+    """Get current commit from ``commit.txt`` file."""
+    if not commit_txt_path.exists():
+        return None
+
+    with commit_txt_path.open() as commit_txt_file:
+        commit = commit_txt_file.read().strip()
+        return commit

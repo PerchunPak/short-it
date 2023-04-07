@@ -12,6 +12,15 @@ BASE_DIR = pathlib.Path(__file__).parent.parent
 
 
 @dataclasses.dataclass
+class SentryConfigSection:
+    """Sentry config section."""
+
+    enabled: bool = False
+    dsn: str = "..."
+    traces_sample_rate: float = 1.0
+
+
+@dataclasses.dataclass
 class LinkSettings:
     """Settings for a one project link."""
 
@@ -39,6 +48,7 @@ class Config(metaclass=utils.Singleton):
 
     projects: dict[str, dict[str, LinkSettings]] = dataclasses.field(default_factory=dict)
     simple: dict[str, str] = dataclasses.field(default_factory=dict)
+    sentry: SentryConfigSection = dataclasses.field(default_factory=SentryConfigSection)
 
     @classmethod
     def _setup(cls) -> te.Self:
