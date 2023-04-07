@@ -61,7 +61,6 @@ class LinkSettings:
 class Config(metaclass=utils.Singleton):
     """The main config that holds everything in itself."""
 
-    domain: str = "..."
     projects: dict[str, dict[str, LinkSettings]] = dataclasses.field(default_factory=dict)
     simple: dict[str, str] = dataclasses.field(default_factory=dict)
     logging: LoggingConfigSection = dataclasses.field(default_factory=LoggingConfigSection)
