@@ -29,8 +29,12 @@ def find_and_redirect_to_the_link(
     project_name: str, link_type: str | None
 ) -> fastapi.responses.RedirectResponse | fastapi.responses.PlainTextResponse:
     """The logic in this module."""
+    project_name = project_name.lower()
+    if link_type is not None:
+        link_type = link_type.lower()
+
     try:
-        result = parse_config.ParseConfigToMachineData().get_url(project_name.lower(), link_type.lower())
+        result = parse_config.ParseConfigToMachineData().get_url(project_name, link_type)
     except short_it.exc.ShortItException as exception:
         return fastapi.responses.PlainTextResponse(exception.message)
     else:
