@@ -14,8 +14,7 @@
       "_copy_without_render": [
         ".venv",
         "docs/_build",
-        "docs/_autoapi_templates/python",
-        ".github/workflows"
+        "docs/_autoapi_templates/python"
       ],
       "_template": "https://github.com/PerchunPak/python-template"
     }
