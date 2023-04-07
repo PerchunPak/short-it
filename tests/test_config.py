@@ -24,14 +24,14 @@ class TestLinkSettings:
         ],
     )
     @pytest.mark.parametrize("aliases_are_set", [True, False])
-    def test_add_builtin_aliases(
+    def test_resolve_builtin_aliases(
         self,
         faker: Faker,
         alias: t.Literal["random"] | str,
         expected: t.Literal["github", "read-the-docs", "docs"] | None,
         aliases_are_set: bool,
     ) -> None:
-        """Test for :meth:`short_it.config.LinkSettings.add_builtin_aliases` method."""
+        """Test for :meth:`short_it.config.LinkSettings.resolve_builtin_aliases` method."""
         if aliases_are_set:
             expected_value = faker.pylist()
         else:
@@ -43,5 +43,5 @@ class TestLinkSettings:
             }[expected]
 
         instance = short_it.config.LinkSettings(aliases=expected_value if aliases_are_set else None)
-        instance.add_builtin_aliases(alias if alias != "random" else faker.word())
+        instance.resolve_builtin_aliases(alias if alias != "random" else faker.word())
         assert instance.aliases == expected_value

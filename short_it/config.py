@@ -28,9 +28,11 @@ class LinkSettings:
     aliases: list[str] | None = None
     additional_aliases: list[str] | None = None
 
-    def add_builtin_aliases(self, link_type: str) -> None:
+    def resolve_builtin_aliases(self, link_type: str) -> None:
         """Add pre-defined aliases, if user set some often used link type."""
-        if self.aliases is not None:
+        if (
+            hasattr(self, "aliases") and self.aliases is not None
+        ):  # omegaconf.errors.ConfigAttributeError: Missing key aliases
             return
 
         match link_type:
@@ -69,5 +71,9 @@ class Config(metaclass=utils.Singleton):
 
         with open(config_path, "w") as config_file:
             omegaconf.OmegaConf.save(cfg, config_file)
+
+        for project in cfg.projects.values():
+            for link_type, link_settings in project.items():
+                LinkSettings.resolve_builtin_aliases(link_settings, link_type)
 
         return t.cast(te.Self, cfg)
