@@ -30,7 +30,7 @@ def find_and_redirect_to_the_link(
 ) -> fastapi.responses.RedirectResponse | fastapi.responses.PlainTextResponse:
     """The logic in this module."""
     try:
-        result = parse_config.ParseConfigToMachineData().get_url(project_name, link_type)
+        result = parse_config.ParseConfigToMachineData().get_url(project_name.lower(), link_type.lower())
     except short_it.exc.ShortItException as exception:
         return fastapi.responses.PlainTextResponse(exception.message)
     else:
