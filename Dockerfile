@@ -41,6 +41,6 @@ COPY --from=git /commit.txt commit.txt
 RUN chown -R 5000:5000 /app
 USER container
 
-ENV PROD 1
+ENV SENTRY_ENVIRONMENT production
 
 CMD ["dumb-init", "uvicorn", "short_it.app:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8080"]
