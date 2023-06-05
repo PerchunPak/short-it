@@ -18,7 +18,7 @@ python = "~3.11"
 
 # Our dependecies
 omegaconf = "~2.3"
-fastapi = "~0.95"
+fastapi = "~0.96"
 uvicorn = "~0.22"
 sentry-sdk = { extras = ["fastapi"], version = "~1.24" }
 
