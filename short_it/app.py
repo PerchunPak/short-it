@@ -3,7 +3,9 @@ import fastapi.responses
 
 import short_it.exc
 import short_it.parse_config as parse_config
+from short_it import utils
 
+utils.start_sentry()
 app = fastapi.FastAPI()
 
 NOT_FOUND_HTML = (
