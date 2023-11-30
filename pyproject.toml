@@ -20,7 +20,7 @@ python = "~3.11"
 omegaconf = "~2.3"
 fastapi = "~0.104"
 uvicorn = "~0.24"
-sentry-sdk = { extras = ["fastapi"], version = "~1.35" }
+sentry-sdk = { extras = ["fastapi"], version = "~1.38" }
 
 
 [tool.poetry.group.make.dependencies]
