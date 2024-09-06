@@ -51,10 +51,10 @@ projects:
 ```
 
 > **Note**
-> 
+>
 > We auto adding some aliases to the chosen links. You can overwrite those by setting `aliases`
 > attribute or add more aliases with `additional_aliases` attribute.
-> 
+>
 > You can find all such aliases [here](https://github.com/PerchunPak/short-it/blob/master/short_it/config.py#L28-L34).
 
 ### Simple links
@@ -69,28 +69,6 @@ simple:  # This is a list of simple links
   github: https://github.com/PerchunPak  # a link name and a destination *inline*
   site: https://perchun.it
 ```
-
-## Self-hosting
-
-I recommend using Docker for hosting the project, but if you don't want to, you can just follow
-`for local developing` instructions and in the end use
-`uvicorn short_it.app:app --proxy-headers --host 0.0.0.0 --port 8080`.
-Below will be instructions for hosting in Docker.
-
-Firstly, you need to install Docker, follow instructions [here](https://docs.docker.com/get-docker/).
-
-Then you need to create a directory for the project, and create a file `data/config.yml` in it.
-Be sure that you give the correct permissions to the file. If you don't know how to do it, just run
-`chmod 777 data/config.yml` (only for Linux) in the project directory.
-
-Then you can run the project with the following command:
-
-```bash
-docker run -d --name short-it -p 80:80 -v $(pwd)/data:/app/data perchunpak/short-it
-```
-
-Application should generate config, and you can edit it. But before, stop the app with `docker stop short-it`
-and, after you edited the config, start it again with `docker start short-it`.
 
 ## Installing for local developing
 

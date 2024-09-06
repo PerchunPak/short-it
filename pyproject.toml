@@ -14,9 +14,9 @@ repository = "https://github.com/PerchunPak/short-it"
 
 
 [tool.poetry.dependencies]
-python = "~3.11"
+python = ">=3.11,<3.13"
 
-# Our dependecies
+# Our dependencies
 omegaconf = "~2.3"
 fastapi = "~0.110"
 uvicorn = "~0.27"
@@ -60,11 +60,8 @@ requests = "~2.31"
 GitPython = "~3.1"
 
 
-[tool.poetry.group.docker]
-optional = true
-
-[tool.poetry.group.docker.dependencies]
-dumb-init = "~1.2"
+[tool.poetry.scripts]
+short-it = "short_it.app:start"
 
 
 [tool.black]

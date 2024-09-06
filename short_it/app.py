@@ -1,5 +1,8 @@
 """Module for the app object, and all handlers."""
+import os
+
 import fastapi.responses
+import uvicorn
 
 import short_it.exc
 import short_it.parse_config as parse_config
@@ -64,3 +67,7 @@ def route_simple_link(link_type: str) -> fastapi.responses.RedirectResponse | fa
 def handle_404(*_, **__) -> fastapi.responses.HTMLResponse:
     """Redirect to my site on ``Not found`` error."""
     return fastapi.responses.HTMLResponse(NOT_FOUND_HTML, status_code=404)
+
+
+def start() -> None:
+    uvicorn.run("app", host=os.environ["HOST"], port=os.environ["PORT"])
